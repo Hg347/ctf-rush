@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Linux x86_64; rv:136.0) Gecko/20100101 Firefox/136.0" version="26.2.12">
   <diagram name="Seite-1" id="71OWZ8WDyYSxYaxWNZuU">
-    <mxGraphModel dx="1190" dy="689" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+    <mxGraphModel dx="985" dy="570" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -122,6 +122,30 @@
         <mxCell id="y99wibb_qyMqdfy85E6Z-40" value="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="y99wibb_qyMqdfy85E6Z-39">
           <mxGeometry x="0.2452" y="2" relative="1" as="geometry">
             <mxPoint x="8" y="11" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="y99wibb_qyMqdfy85E6Z-41" value="ID" style="ellipse;whiteSpace=wrap;html=1;align=center;fontStyle=4;" vertex="1" parent="1">
+          <mxGeometry x="110" y="508" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="y99wibb_qyMqdfy85E6Z-42" value="ID" style="ellipse;whiteSpace=wrap;html=1;align=center;fontStyle=4;" vertex="1" parent="1">
+          <mxGeometry x="715" y="180" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="y99wibb_qyMqdfy85E6Z-43" value="ID" style="ellipse;whiteSpace=wrap;html=1;align=center;fontStyle=4;" vertex="1" parent="1">
+          <mxGeometry x="660" y="530" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="y99wibb_qyMqdfy85E6Z-44" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;startFill=0;exitX=0;exitY=0.75;exitDx=0;exitDy=0;" edge="1" parent="1" source="y99wibb_qyMqdfy85E6Z-3" target="y99wibb_qyMqdfy85E6Z-41">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="192" y="380" as="sourcePoint" />
+            <mxPoint x="130" y="481" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="y99wibb_qyMqdfy85E6Z-46" value="image" style="ellipse;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="80" y="430" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="y99wibb_qyMqdfy85E6Z-47" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;startFill=0;exitX=0;exitY=0.25;exitDx=0;exitDy=0;" edge="1" parent="1" source="y99wibb_qyMqdfy85E6Z-3">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="210" y="430" as="sourcePoint" />
+            <mxPoint x="180" y="446" as="targetPoint" />
           </mxGeometry>
         </mxCell>
       </root>
