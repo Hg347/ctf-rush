@@ -77,6 +77,9 @@
         <mxCell id="849fYaTX_eS8fPJYgH0S-23" value="" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shadow=0;dashed=0;strokeWidth=1;shape=mxgraph.android.phone2;strokeColor=#c0c0c0;" vertex="1" parent="1">
           <mxGeometry x="624.5" y="180" width="15" height="30" as="geometry" />
         </mxCell>
+        <mxCell id="849fYaTX_eS8fPJYgH0S-30" value="Player 1 has been to slow &lt;br&gt;and cannot capture Player 1 &lt;br&gt;anymore" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="460.00493941714956" y="299.9974611924496" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
