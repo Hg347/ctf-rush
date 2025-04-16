@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Linux x86_64; rv:136.0) Gecko/20100101 Firefox/136.0" version="26.2.13">
   <diagram name="Seite-1" id="4sdjlLzygc979qHXJ2A0">
-    <mxGraphModel dx="1428" dy="783" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+    <mxGraphModel dx="985" dy="540" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -34,7 +34,7 @@
         <mxCell id="849fYaTX_eS8fPJYgH0S-23" value="" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shadow=0;dashed=0;strokeWidth=1;shape=mxgraph.android.phone2;strokeColor=#c0c0c0;" parent="1" vertex="1">
           <mxGeometry x="640" y="413" width="15" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="849fYaTX_eS8fPJYgH0S-30" value="Player 2 brings the blue team&#39;s flag&lt;br&gt;to the own HQ.&lt;br&gt;&lt;br&gt;Within 10s the player scans both QR-Codes &lt;br&gt;of the flag and HQ to verify the success. &lt;br&gt;&lt;br&gt;Team red has won!&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="1" vertex="1" connectable="0">
+        <mxCell id="849fYaTX_eS8fPJYgH0S-30" value="Free Player 2 brings the blue team&#39;s flag&lt;br&gt;to the own HQ.&lt;br&gt;&lt;br&gt;Within 10s the player scans both QR-Codes &lt;br&gt;of the flag and HQ to verify the success. &lt;br&gt;&lt;br&gt;Team red has won!&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="1" vertex="1" connectable="0">
           <mxGeometry x="510.00493941714956" y="464.9974611924496" as="geometry" />
         </mxCell>
         <mxCell id="dxFgPkeivX8VVtLk71lp-3" value="Player 3" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;strokeColor=#3333FF;" parent="1" vertex="1">
