@@ -1,14 +1,11 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Linux x86_64; rv:136.0) Gecko/20100101 Firefox/136.0" version="26.2.13">
   <diagram name="Seite-1" id="4sdjlLzygc979qHXJ2A0">
-    <mxGraphModel dx="1680" dy="921" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+    <mxGraphModel dx="1190" dy="653" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="849fYaTX_eS8fPJYgH0S-6" value="Player 2" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;strokeColor=#CC0000;" parent="1" vertex="1">
           <mxGeometry x="639.5" y="180" width="30" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="849fYaTX_eS8fPJYgH0S-8" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn2.iconfinder.com/data/icons/boxicons-regular-vol-3/24/bx-qr-128.png" parent="1" vertex="1">
-          <mxGeometry x="634.5" y="120" width="40" height="40" as="geometry" />
         </mxCell>
         <mxCell id="849fYaTX_eS8fPJYgH0S-12" value="&lt;span style=&quot;color: rgb(51, 51, 255);&quot;&gt;Team Blue&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="210" y="420" width="60" height="30" as="geometry" />
@@ -37,10 +34,10 @@
         <mxCell id="849fYaTX_eS8fPJYgH0S-23" value="" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shadow=0;dashed=0;strokeWidth=1;shape=mxgraph.android.phone2;strokeColor=#c0c0c0;" parent="1" vertex="1">
           <mxGeometry x="624.5" y="180" width="15" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="849fYaTX_eS8fPJYgH0S-30" value="Player 1 can be freed by &lt;br&gt;another free, blue team player &lt;br&gt;who scans the code of player 1&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="1" vertex="1" connectable="0">
+        <mxCell id="849fYaTX_eS8fPJYgH0S-30" value="Player 1 can be freed by &lt;br&gt;another free, blue team player &lt;br&gt;who scans the code of player 1 &lt;br&gt;and the jail&#39;s QR code within 10 s&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="1" vertex="1" connectable="0">
           <mxGeometry x="600.0049394171496" y="549.9974611924496" as="geometry" />
         </mxCell>
-        <mxCell id="dxFgPkeivX8VVtLk71lp-1" value="" style="group" vertex="1" connectable="0" parent="1">
+        <mxCell id="dxFgPkeivX8VVtLk71lp-1" value="" style="group" parent="1" vertex="1" connectable="0">
           <mxGeometry x="745" y="560" width="20" height="60" as="geometry" />
         </mxCell>
         <mxCell id="849fYaTX_eS8fPJYgH0S-1" value="Player 1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;strokeColor=#3333FF;" parent="dxFgPkeivX8VVtLk71lp-1" vertex="1">
@@ -52,17 +49,23 @@
         <mxCell id="849fYaTX_eS8fPJYgH0S-22" value="" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shadow=0;dashed=0;strokeWidth=1;shape=mxgraph.android.phone2;strokeColor=#c0c0c0;" parent="dxFgPkeivX8VVtLk71lp-1" vertex="1">
           <mxGeometry x="14" y="30" width="6" height="15" as="geometry" />
         </mxCell>
-        <mxCell id="dxFgPkeivX8VVtLk71lp-6" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" edge="1" parent="1" source="dxFgPkeivX8VVtLk71lp-3" target="849fYaTX_eS8fPJYgH0S-4">
+        <mxCell id="dxFgPkeivX8VVtLk71lp-6" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fillColor=#dae8fc;strokeColor=#6c8ebf;dashed=1;" parent="1" source="dxFgPkeivX8VVtLk71lp-3" target="849fYaTX_eS8fPJYgH0S-4" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="dxFgPkeivX8VVtLk71lp-3" value="Player 3" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;strokeColor=#3333FF;" vertex="1" parent="1">
+        <mxCell id="dxFgPkeivX8VVtLk71lp-3" value="Player 3" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;strokeColor=#3333FF;" parent="1" vertex="1">
           <mxGeometry x="600" y="650" width="30" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="dxFgPkeivX8VVtLk71lp-4" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn2.iconfinder.com/data/icons/boxicons-regular-vol-3/24/bx-qr-128.png" vertex="1" parent="1">
-          <mxGeometry x="595" y="590" width="40" height="40" as="geometry" />
-        </mxCell>
-        <mxCell id="dxFgPkeivX8VVtLk71lp-5" value="" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shadow=0;dashed=0;strokeWidth=1;shape=mxgraph.android.phone2;strokeColor=#c0c0c0;" vertex="1" parent="1">
+        <mxCell id="dxFgPkeivX8VVtLk71lp-5" value="" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shadow=0;dashed=0;strokeWidth=1;shape=mxgraph.android.phone2;strokeColor=#c0c0c0;" parent="1" vertex="1">
           <mxGeometry x="585" y="650" width="15" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="i0LCChPtVQRbLx7qDiWd-1" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn1.iconfinder.com/data/icons/ionicons-outline-vol-2/512/qr-code-outline-128.png" vertex="1" parent="1">
+          <mxGeometry x="840" y="666" width="18" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="i0LCChPtVQRbLx7qDiWd-2" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fillColor=#dae8fc;strokeColor=#6c8ebf;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;dashed=1;" edge="1" parent="1" source="dxFgPkeivX8VVtLk71lp-3" target="i0LCChPtVQRbLx7qDiWd-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="640" y="677" as="sourcePoint" />
+            <mxPoint x="755" y="578" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
