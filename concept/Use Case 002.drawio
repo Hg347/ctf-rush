@@ -37,7 +37,7 @@
         <mxCell id="849fYaTX_eS8fPJYgH0S-23" value="" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shadow=0;dashed=0;strokeWidth=1;shape=mxgraph.android.phone2;strokeColor=#c0c0c0;" parent="1" vertex="1">
           <mxGeometry x="624.5" y="180" width="15" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="849fYaTX_eS8fPJYgH0S-30" value="Player 1 can be freed by &lt;br&gt;another blue team player who&lt;br&gt;is free" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="1" vertex="1" connectable="0">
+        <mxCell id="849fYaTX_eS8fPJYgH0S-30" value="Player 1 can be freed by &lt;br&gt;another free, blue team player &lt;br&gt;who scans the code of player 1&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="1" vertex="1" connectable="0">
           <mxGeometry x="624.5049394171496" y="599.9974611924496" as="geometry" />
         </mxCell>
         <mxCell id="dxFgPkeivX8VVtLk71lp-1" value="" style="group" vertex="1" connectable="0" parent="1">
