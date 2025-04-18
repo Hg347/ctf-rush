@@ -16,3 +16,22 @@ Refer to [concepts folder](./concept/Readme.md)
 ## How to contribute?
 Feel free to contact the maintainers via email as published on GitHub.
 For more details, see [contribution guide](./Contribute.md).
+
+### Development Environment
+
+#### Web Server 
+
+We use [Laravel Homestead](https://laravel.com/docs/12.x/homestead) as development environment for the web server part.
+
+- Linux, Apache, MySQL, PHP (LAMP)
+- Laravel PHP framework
+  - LiveWire
+
+
+
+#### Mobile Client
+
+
+We use [Flutter](https://flutter.dev/) as development environment for a mobile app running on iOS and Android.
+
+- cross-platform app with Flutter
