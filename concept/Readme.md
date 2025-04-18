@@ -22,7 +22,7 @@ The software architecture uses a layered architecture design and decoupling thro
 ## Draft of Database Design 
 The basic database design is outlined in the following entity-relationship model.
 
-![Database Concept](./ctf_db_concept.png)
+![Database Concept](./ctf_db_concept.drawio.png)
 
 
 
@@ -30,5 +30,7 @@ The basic database design is outlined in the following entity-relationship model
 Further ideas that will be examined in more detail and implemented if necessary at a later date:
 
 - incorporating NFC tags
-- using Openstreet maps and geo locations
-- 
+- using Openstreet maps 
+- geo locations by Smartphone sensor
+- movements by Smartphone sensor
+- speeds by Smartphone sensor

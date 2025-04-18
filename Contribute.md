@@ -52,6 +52,3 @@ One of the maintainers will review your PR and provide feedback if necessary. Pl
 
 Thank you for contributing! 🚀
 
----
-
-Does this fit your needs, Christoph? I can tweak it further if you'd like!
