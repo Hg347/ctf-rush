@@ -4,6 +4,16 @@
 ## Use Cases
 For details on game scenarios refer to [scenarios folder](./scenarios/Readme.md).
 
+
+## Tech Stack
+Server 
+- Linux, Apache, MySQL, PHP (LAMP)
+- Laravel PHP framework
+  - LiveWire
+
+Mobile Client
+- Android native app
+
 ## Intended Software Architecture
 The software architecture uses a layered architecture design and decoupling through the implementation of an application programming interface (API).
 
@@ -14,13 +24,6 @@ The basic database design is outlined in the following entity-relationship model
 
 ![Database Concept](./ctf_db_concept.png)
 
-## Tech Stack
-Server 
-- Linux, Apache, MySQL, PHP (LAMP)
-- Laravel PHP framework
-
-Mobile Client
-- Android native app
 
 
 ## Ideas
