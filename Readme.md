@@ -17,21 +17,25 @@ Refer to [concepts folder](./concept/Readme.md)
 Feel free to contact the maintainers via email as published on GitHub.
 For more details, see [contribution guide](./Contribute.md).
 
-### Development Environment
+## Development Environment
+
+Currently, the following information is only a preliminary idea. Running a web server via LAMP web hosting for an API seems like a lot of effort, also for the api scaffolding in php and deployment. Furthermore, this approach doesn't scale. It will probably be more likely to be a serverless version with AWS.
+
+### Hosting Option
 
 #### Web Server 
 
-We use [Laravel Homestead](https://laravel.com/docs/12.x/homestead) as development environment for the web server part.
+For webhosting we intend to use [Laravel Homestead](https://laravel.com/docs/12.x/homestead) as development environment for the web server part.
 
 - Linux, Apache, MySQL, PHP (LAMP)
 - Laravel PHP framework
   - LiveWire
 
-
-
-#### Mobile Client
-
+### Mobile Client
 
 We use [Flutter](https://flutter.dev/) as development environment for a mobile app running on iOS and Android.
 
 - cross-platform app with Flutter
+
+### Tools
+- [OpenAPI Playground](https://criteria.sh/play) 
