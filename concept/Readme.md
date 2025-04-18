@@ -34,3 +34,7 @@ Further ideas that will be examined in more detail and implemented if necessary 
 - geo locations by Smartphone sensor
 - movements by Smartphone sensor
 - speeds by Smartphone sensor
+- voice communication with in-ear headphones
+- decentralized / mesh wireless connections, e.g. 
+  - WI-FI Direct
+  - LoRa Mesh (e.g. Helium)
