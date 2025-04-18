@@ -1,8 +1,8 @@
 # CTF Rush - Capture the flag
 
-CTF-Rush is a new variation of the traditional urban game [Capture the Flag (CTF)](./Ctf-Instruction.md). It integrates the possibilities of modern technologies, such as smartphones, making it a pervasive game.
+CTF-Rush is a new variation of the traditional urban game [Capture the Flag (CTF)](./Ctf-Instruction.md). It integrates the possibilities of modern technologies, such as smartphones, and makes it a pervasive game.
 
-The idea is to encourage children and young people to play together outdoors, in the real world, instead of just playing online games inside. We strongly believe that there is enormous potential in technology-sustained games to encourage everyday movement and play.
+The idea is to encourage children and young people to play together outdoors in the real world, rather than playing online games alone indoors. We strongly believe that there is enormous potential in technology-sustained games to encourage everyday movement and play.
 
 For more information about the traditional game, see [Wikipedia](https://en.wikipedia.org/wiki/Capture_the_flag).
 
