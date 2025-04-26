@@ -1,0 +1,150 @@
+openapi: 3.0.3
+info:
+  title: CTF Rush API
+  description: API for the CTF Rush game, a technology-enhanced version of the
+    traditional outdoor game "Capture the Flag".
+  version: 1.1.0
+  contact:
+    name: CTF Team
+    url: https://ctf-rush.de
+    email: info@ctf-rush.de
+  license:
+    name: Apache License V2.0
+    url: http://www.apache.org/licenses/
+servers:
+  - url: https://api.ctf-rush.de
+    description: Production server
+  - url: http://localhost:3000
+    description: Development server
+paths:
+  /players:
+    get:
+      summary: Get a list of all players
+      responses:
+        "200":
+          description: A list of players
+          content:
+            application/json:
+              schema:
+                type: array
+                items: &a1
+                  type: object
+                  properties:
+                    id:
+                      type: string minLength:36 maxLength:36
+                      format: uuid
+                      example: 936DA01F-9ABD-4D9D-80C7-02AF85C822A8
+                    username:
+                      type: string minLength:3 maxLength:80
+                      example: Player 4711
+                    birthdate:
+                      type: string
+                      format: date
+                      example: 07.03.2013
+                    avatar:
+                      type: string
+                      format: binary
+                    score:
+                      type: integer
+                      example: 1250
+                    location: &a3
+                      type: object
+                      description: A geographic location provided by a smartphone sensor API.
+                      properties:
+                        latitude:
+                          type: number
+                          format: double
+                          description: Latitude of the location.
+                        longitude:
+                          type: number
+                          format: double
+                          description: Longitude of the location.
+                        accuracy:
+                          type: number
+                          format: double
+                          description: Accuracy of the location in meters.  
+                        altitude:
+                          type: number
+                          format: double
+                          description: Altitude of the location in meters.
+                        altitudeaccuracy:
+                          type: number
+                          format: double
+                          description: Accuracy of the altitude in meters.
+                  required:
+                    - id
+                    - username  
+    post:
+      summary: Create a new player
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: *a1
+      responses:
+        "201":
+          description: Player created successfully
+          content:
+            application/json:
+              schema: *a1
+  /players/{playerId}:
+    get:
+      summary: Get details of a specific player
+      parameters:
+        - name: playerId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Player details
+          content:
+            application/json:
+              schema: *a1
+        "404":
+          description: Player not found
+    put:
+      summary: Update a player's details
+      parameters:
+        - name: playerId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: *a1
+      responses:
+        "200":
+          description: Player updated successfully
+        "404":
+          description: Player not found
+    delete:
+      summary: Delete a player
+      parameters:
+        - name: playerId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: Player deleted successfully
+        "404":
+          description: Player not found
+components:
+  schemas:
+    Player: *a1
+    GeoLocation: *a3
+  securitySchemes:
+    OAuth2CodeFlow:
+      type: oauth2
+      flows: {}
+      description: Users can grant the mobile app access to the backend service to
+        exchange player and game data.
+    OpenIDConnectAuth:
+      type: openIdConnect
+      openIdConnectUrl: https://openid.ctf-rush.de

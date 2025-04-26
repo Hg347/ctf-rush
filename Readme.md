@@ -23,7 +23,7 @@ Currently, the following information is only a preliminary idea. Running a web s
 
 ### Backend 
 
-For backend processing, API endpoint and database we intend to use either 
+For backend processing by an API service that is database backed, we intend to use either 
 
 1. [Laravel Homestead](https://laravel.com/docs/12.x/homestead) as development environment for the web server part.
    - Linux, Apache, MySQL, PHP (LAMP)
