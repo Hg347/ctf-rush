@@ -21,21 +21,22 @@ For more details, see [contribution guide](./Contribute.md).
 
 Currently, the following information is only a preliminary idea. Running a web server via LAMP web hosting for an API seems like a lot of effort, also for the api scaffolding in php and deployment. Furthermore, this approach doesn't scale. It will probably be more likely to be a serverless version with AWS.
 
-### Hosting Option
+### Backend 
 
-#### Web Server 
+For backend processing, API endpoint and database we intend to use either 
 
-For webhosting we intend to use [Laravel Homestead](https://laravel.com/docs/12.x/homestead) as development environment for the web server part.
+1. [Laravel Homestead](https://laravel.com/docs/12.x/homestead) as development environment for the web server part.
+   - Linux, Apache, MySQL, PHP (LAMP)
+   - Laravel PHP framework
+   - LiveWire
 
-- Linux, Apache, MySQL, PHP (LAMP)
-- Laravel PHP framework
-  - LiveWire
+2. or [AWS Serverless Computing](https://aws.amazon.com/serverless/)
 
-### Mobile Client
+### Frontend, Mobile Client
 
-We use [Flutter](https://flutter.dev/) as development environment for a mobile app running on iOS and Android.
+We intend to use [Flutter](https://flutter.dev/) as development environment for a mobile app running on iOS and Android.
 
-- cross-platform app with Flutter
+- [cross-platform app with Flutter](https://medium.com/flutter-community/create-a-cross-platform-app-using-flutter-in-2021-59e582cb625f)
 
 ### Tools
 - [OpenAPI Playground](https://criteria.sh/play) 
