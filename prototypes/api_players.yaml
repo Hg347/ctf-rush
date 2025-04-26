@@ -27,66 +27,23 @@ paths:
             application/json:
               schema:
                 type: array
-                items: &a1
-                  type: object
-                  properties:
-                    id:
-                      type: string minLength:36 maxLength:36
-                      format: uuid
-                      example: 936DA01F-9ABD-4D9D-80C7-02AF85C822A8
-                    username:
-                      type: string minLength:3 maxLength:80
-                      example: Player 4711
-                    birthdate:
-                      type: string
-                      format: date
-                      example: 07.03.2013
-                    avatar:
-                      type: string
-                      format: binary
-                    score:
-                      type: integer
-                      example: 1250
-                    location: &a3
-                      type: object
-                      description: A geographic location provided by a smartphone sensor API.
-                      properties:
-                        latitude:
-                          type: number
-                          format: double
-                          description: Latitude of the location.
-                        longitude:
-                          type: number
-                          format: double
-                          description: Longitude of the location.
-                        accuracy:
-                          type: number
-                          format: double
-                          description: Accuracy of the location in meters.  
-                        altitude:
-                          type: number
-                          format: double
-                          description: Altitude of the location in meters.
-                        altitudeaccuracy:
-                          type: number
-                          format: double
-                          description: Accuracy of the altitude in meters.
-                  required:
-                    - id
-                    - username  
+                items:
+                  $ref: '#/components/schemas/Player'
     post:
       summary: Create a new player
       requestBody:
         required: true
         content:
           application/json:
-            schema: *a1
+            schema: 
+              $ref: '#/components/schemas/Player'
       responses:
         "201":
           description: Player created successfully
           content:
             application/json:
-              schema: *a1
+              schema: 
+                $ref: '#/components/schemas/Player'
   /players/{playerId}:
     get:
       summary: Get details of a specific player
@@ -101,7 +58,8 @@ paths:
           description: Player details
           content:
             application/json:
-              schema: *a1
+              schema:
+                $ref: '#/components/schemas/Player'
         "404":
           description: Player not found
     put:
@@ -116,7 +74,8 @@ paths:
         required: true
         content:
           application/json:
-            schema: *a1
+            schema:
+              $ref: '#/components/schemas/Player'
       responses:
         "200":
           description: Player updated successfully
@@ -137,8 +96,55 @@ paths:
           description: Player not found
 components:
   schemas:
-    Player: *a1
-    GeoLocation: *a3
+    Player:
+      type: object
+      properties:
+        id:
+          type: string minLength:36 maxLength:36
+          format: uuid
+          example: 936DA01F-9ABD-4D9D-80C7-02AF85C822A8
+        username:
+          type: string minLength:3 maxLength:80
+          example: Player 4711
+        location:
+          $ref: '#/components/schemas/GeoLocation'  
+        birthdate:
+          type: string
+          format: date
+          example: 07.03.2013
+        avatar:
+          type: string
+          format: binary
+        score:
+          type: integer
+          example: 1250
+      required:
+        - id
+        - username  
+    GeoLocation:
+      type: object
+      description: A geographic location provided by a smartphone sensor API.
+      properties:
+        latitude:
+          type: number
+          format: double
+          description: Latitude of the location.
+        longitude:
+          type: number
+          format: double
+          description: Longitude of the location.
+        accuracy:
+          type: number
+          format: double
+          description: Accuracy of the location in meters.  
+        altitude:
+          type: number
+          format: double
+          description: Altitude of the location in meters.
+        altitudeaccuracy:
+          type: number
+          format: double
+          description: Accuracy of the altitude in meters.
   securitySchemes:
     OAuth2CodeFlow:
       type: oauth2
