@@ -1,6 +1,7 @@
 name: Deploy AWS Account with Terraform
 
 on:
+  workflow_dispatch: # Enables manual triggering
   push:
     paths:
       - 'terraform/**'
