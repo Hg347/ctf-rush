@@ -1,3 +1,6 @@
+[![Deploy AWS Account with Terraform](https://github.com/Hg347/ctf-rush/actions/workflows/terraform-deploy.yml/badge.svg)](https://github.com/Hg347/ctf-rush/actions/workflows/terraform-deploy.yml)
+
+
 # Setup Local Development Environment
 
 ## Requirements

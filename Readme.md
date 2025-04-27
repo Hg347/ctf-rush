@@ -9,6 +9,9 @@ For more information about the traditional game, see [Wikipedia](https://en.wiki
 ## Project Status
 The project is currently in the conception phase.
 
+### Pipelines
+[![Deploy AWS Account with Terraform](https://github.com/Hg347/ctf-rush/actions/workflows/terraform-deploy.yml/badge.svg)](https://github.com/Hg347/ctf-rush/actions/workflows/terraform-deploy.yml)
+
 ### Concepts and Design 
 Refer to [concepts folder](./concept/Readme.md)
 
