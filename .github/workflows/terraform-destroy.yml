@@ -39,9 +39,9 @@ jobs:
 
     - name: Terraform Plan
       working-directory: terraform
-      run: terraform plan -out=tfplan 
+      run: terraform plan
       
     - name: Terraform Destroy
       if: ${{ success() }}
       working-directory: terraform
-      run: terraform destroy -auto-approve tfplan
+      run: terraform destroy -auto-approve
