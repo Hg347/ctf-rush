@@ -21,36 +21,26 @@ jobs:
         terraform_version: 1.5.5 # Specify the Terraform version you want to use
 
     - name: Terraform Init
-      working-directory: ./terraform
+      working-directory: terraform
       run: terraform init
 
     - name: Terraform Plan
-      working-directory: ./terraform
+      working-directory: terraform
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       run: terraform plan -out=tfplan 
       
+    - name: Wait for Approval
+      if: ${{ success() }}
+      run: |
+        echo "Please approve the job in the GitHub UI to proceed with applying the changes."
+      env:
+        GITHUB_ENV: ${{ github.environment }}
 
-  approval:
-    needs: [terraform]
-    runs-on: ubuntu-latest
-
-    environment: approval
-
-    steps:
-    - name: Manual approval required
-      run: echo "Please approve the deployment in the GitHub Actions UI."
-
-  terraform_apply:
-    needs: [approval]
-    runs-on: ubuntu-latest
-
-    environment: development
-
-    steps:
     - name: Terraform Apply
-      working-directory: ./terraform
+      if: ${{ success() }}
+      working-directory: terraform
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
