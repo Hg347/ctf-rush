@@ -1,4 +1,4 @@
-name: Deploy AWS Account with Terraform
+name: Provision AWS with Terraform
 
 on:
   workflow_dispatch: # Enables manual triggering
@@ -7,7 +7,7 @@ on:
       - 'terraform/**'
 
 jobs:
-  terraform:
+  terraform_deploy:
     runs-on: ubuntu-latest
 
     environment: development
@@ -16,12 +16,20 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
+    - name: Restore Terraform Cache
+      uses: actions/cache@v3
+      with:
+        path: terraform/.terraform
+        key: terraform-${{ runner.os }}-${{ hashFiles('**/*.tf') }}
+        restore-keys: |
+          terraform-${{ runner.os }}-
+
     - name: Set up Terraform
       uses: hashicorp/setup-terraform@v2
       with:
         terraform_version: 1.5.5 # Specify the Terraform version you want to use
 
-    - name: Terraform Init
+    - name: Terraform Init (if cache is missing)
       working-directory: terraform
       run: terraform init
 
@@ -32,13 +40,6 @@ jobs:
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       run: terraform plan -out=tfplan 
       
-    - name: Wait for Approval
-      if: ${{ success() }}
-      run: |
-        echo "Please approve the job in the GitHub UI to proceed with applying the changes."
-      env:
-        GITHUB_ENV: ${{ github.environment }}
-
     - name: Terraform Apply
       if: ${{ success() }}
       working-directory: terraform
