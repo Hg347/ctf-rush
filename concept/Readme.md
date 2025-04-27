@@ -20,6 +20,8 @@ The basic database design is outlined in the following entity-relationship model
 ## Ideas
 Further ideas that will be examined in more detail and implemented if necessary at a later date:
 
+- [Event Driven Architecture](https://serverlessland.com/)
+- [Amazon Location Service](https://aws.amazon.com/de/location/)
 - incorporating NFC tags
 - using Openstreet maps 
 - geo locations by Smartphone sensor
