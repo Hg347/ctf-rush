@@ -36,6 +36,8 @@ jobs:
     needs: [terraform]
     runs-on: ubuntu-latest
 
+    environment: approval
+
     steps:
     - name: Manual approval required
       run: echo "Please approve the deployment in the GitHub Actions UI."
