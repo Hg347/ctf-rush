@@ -2,8 +2,8 @@ name: Deploy AWS Account with Terraform
 
 on:
   push:
-    branches:
-      - main
+    paths:
+      - 'terraform/**'
 
 jobs:
   terraform:
