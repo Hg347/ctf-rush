@@ -17,7 +17,7 @@ provider "aws" {
 
 variable "ctf_tags" {
   default = {
-    ctf:creator = "terraform"
+    creator = "ctf_terraform"
   }
 }
 
