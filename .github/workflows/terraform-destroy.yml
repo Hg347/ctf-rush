@@ -1,4 +1,4 @@
-name: Destroy AWS Infrastructure with Terraform
+name: Destroy AWS Infras with Terraform
 
 on:
   workflow_dispatch: # Allows manual triggering of the workflow
@@ -34,10 +34,17 @@ jobs:
       working-directory: terraform
       run: terraform init
 
-    # Step 5: Terraform Destroy
-    - name: Terraform Destroy
+    - name: Terraform Plan
       working-directory: terraform
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      run: terraform destroy -auto-approve
+      run: terraform plan -out=tfplan 
+      
+    - name: Terraform Destroy
+      if: ${{ success() }}
+      working-directory: terraform
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      run: terraform destroy -auto-approve tfplan
