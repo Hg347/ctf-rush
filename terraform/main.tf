@@ -19,22 +19,23 @@ variable "ctf_tags" {
   default = {
     creator = "ctf_terraform"
     creatorUrl = "https://github.com/Hg347/ctf-rush"
+    environment = "Development"
   }
 }
 
 
-resource "aws_vpc" "main" {
+resource "aws_vpc" "ctf" {
   cidr_block = "10.0.0.0/16"
   tags = var.ctf_tags
 }
 
 resource "aws_subnet" "public_subnet" {
-  vpc_id            = aws_vpc.main.id
+  vpc_id            = aws_vpc.ctf.id
   cidr_block        = "10.0.1.0/24"
   map_public_ip_on_launch = true
   tags = var.ctf_tags
 }
 
 output "vpc_id" {
-  value = aws_vpc.main.id
+  value = aws_vpc.ctf.id
 }
