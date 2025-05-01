@@ -13,7 +13,7 @@ resource "aws_cognito_user_pool" "ctf" {
     require_symbols   = false
   }
 
-  mfa_configuration = "OPTIONAL" 
+  # mfa_configuration = "OPTIONAL" 
 }
 
 
