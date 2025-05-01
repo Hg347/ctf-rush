@@ -1,5 +1,6 @@
 #
 # Identity and Access Management (IAM)
+# CTF Apps and the Users
 #
 resource "aws_cognito_user_pool" "ctf" {
   name = "ctf-pool"

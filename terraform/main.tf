@@ -19,6 +19,7 @@ variable "ctf_tags" {
   default = {
     creator = "ctf_terraform"
     creatorUrl = "https://github.com/Hg347/ctf-rush"
+    project = "ctf-rush"
     environment = "Development"
   }
 }
