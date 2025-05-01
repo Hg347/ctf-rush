@@ -1,6 +1,6 @@
 openapi: 3.0.3
 info:
-  title: CTF Rush API
+  title: CTF Rush Player API
   description: API for the CTF Rush game, a technology-enhanced version of the
     traditional outdoor game "Capture the Flag".
   version: 1.1.0

@@ -22,20 +22,24 @@ resource "aws_iam_role_policy_attachment" "lambda_basic_execution" {
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
 }
 
-# resource "aws_lambda_function" "example_lambda" {
-#  function_name = "example-lambda-function"
-#  runtime       = "python3.9" # Beispiel für Python; ändern Sie dies bei Bedarf
-#  role          = aws_iam_role.lambda_role.arn
-#  handler       = "lambda_function.lambda_handler"
-#  filename      = "example_lambda.zip" # Hochgeladenes Zip der Funktion
-#
-#  environment {
-#    variables = {
-#      ENV = "development"
-#    }
-#  }
-#
-#  tags = {
-#    Environment = "Development"
-#  }
-# }
+resource "aws_lambda_function" "player_lambda" {
+  function_name = "ctf-player-service"
+  runtime       = "go1.x"
+  role          = aws_iam_role.lambda_role.arn
+  handler       = "main"
+  filename      = "player_service.zip" # The compiled and zipped Go binary
+
+  environment {
+    variables = {
+      ENV = "development"
+    }
+  }
+
+  tags = {
+    Environment = "Development"
+  }
+}
+
+output "lambda_function_arn" {
+  value = aws_lambda_function.player_lambda.arn
+}
