@@ -1,5 +1,5 @@
 # CTF Rush - Capture the flag
-[![Deploy AWS Account with Terraform](https://github.com/Hg347/ctf-rush/actions/workflows/terraform-deploy.yml/badge.svg)](https://github.com/Hg347/ctf-rush/actions/workflows/terraform-deploy.yml)
+[![Deploy AWS Account with Terraform](https://github.com/Hg347/ctf-rush/actions/workflows/terraform-deploy.yml/badge.svg)](https://github.com/Hg347/ctf-rush/actions/workflows/terraform-deploy.yml)  [![Player API Lambda](https://github.com/Hg347/ctf-rush/actions/workflows/player-api-deploy.yaml/badge.svg)](https://github.com/Hg347/ctf-rush/actions/workflows/player-api-deploy.yaml)
 
 CTF-Rush is a new variation of the traditional urban game [Capture the Flag (CTF)](./Ctf-Instruction.md). It integrates the possibilities of modern technologies, such as smartphones, and makes it a pervasive game.
 

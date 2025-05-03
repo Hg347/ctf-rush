@@ -27,7 +27,8 @@ resource "aws_lambda_function" "player_lambda" {
   runtime       = "go1.x"
   role          = aws_iam_role.lambda_role.arn
   handler       = "main"
-  filename      = "player_service.zip" # The compiled and zipped Go binary
+
+  # Removed the `filename` attribute to delegate deployment to GitHub Actions
 
   environment {
     variables = {
