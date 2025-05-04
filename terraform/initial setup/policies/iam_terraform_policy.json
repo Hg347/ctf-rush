@@ -5,6 +5,11 @@
         "Effect": "Allow",
         "Action": [
           "iam:TagRole",
+          "iam:CreateRole",
+          "iam:DeleteRole",
+          "iam:CreatePolicy",
+          "iam:DeletePolicy",
+          "iam:TagPolicy",
           "iam:ListRolePolicies",
           "iam:ListPolicyVersions",
           "iam:ListAttachedRolePolicies",

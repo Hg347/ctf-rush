@@ -10,6 +10,8 @@
           "ecr:ListImages",
           "ecr:ListTagsForResource",
 				  "ecr:DeleteRepository",
+          "ecr:TagResource",
+          "ecr:UntagResource",
           "ecr:PutImage"
         ],
         "Resource": "*"

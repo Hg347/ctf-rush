@@ -85,6 +85,22 @@ resource "aws_iam_role" "terraform_execution_role" {
 
 
 #
+# EC2
+# Define access rights (policy) for TerraformExecutionRole
+resource "aws_iam_policy" "ec2_terraform_policy" {
+  name   = "Ec2Policy"
+  tags = var.ctf_tags
+  policy = file("policies/ec2_terraform_policy.json")  # JSON-Datei einbinden
+}
+
+# Attach role policy to TerraformExecutionRole
+resource "aws_iam_role_policy_attachment" "ec2_policy_attach" {
+  role       = aws_iam_role.terraform_execution_role.name
+  policy_arn = aws_iam_policy.ec2_terraform_policy.arn
+}
+
+
+#
 # Cognito
 # Define access rights (policy) for TerraformExecutionRole
 resource "aws_iam_policy" "cognito_terraform_policy" {
@@ -117,6 +133,22 @@ resource "aws_iam_role_policy_attachment" "ecr_policy_attach" {
 
 
 #
+# IAM
+# Define access rights (policy) for TerraformExecutionRole
+resource "aws_iam_policy" "iam_terraform_policy" {
+  name   = "IamPolicy"
+  tags = var.ctf_tags
+  policy = file("policies/iam_terraform_policy.json")  # JSON-Datei einbinden
+}
+
+# Attach role policy to TerraformExecutionRole
+resource "aws_iam_role_policy_attachment" "iam_policy_attach" {
+  role       = aws_iam_role.terraform_execution_role.name
+  policy_arn = aws_iam_policy.iam_terraform_policy.arn
+}
+
+
+#
 # Lambda
 # Define access rights (policy) for TerraformExecutionRole
 resource "aws_iam_policy" "lambda_terraform_policy" {
@@ -129,4 +161,19 @@ resource "aws_iam_policy" "lambda_terraform_policy" {
 resource "aws_iam_role_policy_attachment" "lambda_policy_attach" {
   role       = aws_iam_role.terraform_execution_role.name
   policy_arn = aws_iam_policy.lambda_terraform_policy.arn
+}
+
+#
+# API Gateway
+# Define access rights (policy) for TerraformExecutionRole
+resource "aws_iam_policy" "apigateway_terraform_policy" {
+  name   = "ApigatewayPolicy"
+  tags = var.ctf_tags
+  policy = file("policies/apigateway_terraform_policy.json")  # JSON-Datei einbinden
+}
+
+# Attach role policy to TerraformExecutionRole
+resource "aws_iam_role_policy_attachment" "apigateway_policy_attach" {
+  role       = aws_iam_role.terraform_execution_role.name
+  policy_arn = aws_iam_policy.apigateway_terraform_policy.arn
 }

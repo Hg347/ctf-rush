@@ -3,26 +3,29 @@
 # terraform state file is remotely in an S3 bucket
 #
 terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.0" # Use the latest major version
+    }
+  }
   backend "s3" {
     bucket         = "ctfrush-terraform-state" 
     key            = "terraform/state/terraform.tfstate" 
-    region         = "eu-central-1" 
+    region         = "eu-central-1" # set this also in variables.tf, region!
     encrypt        = true 
   }
 }
 
-provider "aws" {
-  region = "eu-central-1"
-}
 
-variable "ctf_tags" {
-  default = {
-    creator = "ctf_terraform"
-    creatorUrl = "https://github.com/Hg347/ctf-rush"
-    project = "ctf-rush"
-    environment = "Development"
+provider "aws" {
+  region = var.aws_settings.region
+  profile = "terraform" # AWS profile with the correct credentials
+  assume_role {
+    role_arn = "arn:aws:iam::149532386180:role/TerraformExecutionRole"
   }
 }
+
 
 
 resource "aws_vpc" "ctf" {

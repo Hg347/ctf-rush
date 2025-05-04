@@ -1,0 +1,19 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Effect": "Allow",
+        "Action": [
+          "apigateway:POST",
+          "apigateway:PUT",
+          "apigateway:PATCH",
+          "apigateway:DELETE",
+          "apigateway:GET",
+          "apigateway:HEAD",
+          "apigateway:OPTIONS"
+        ],
+        "Resource": "*"
+      }
+    ]
+  }
+  

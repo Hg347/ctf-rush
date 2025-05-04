@@ -1,19 +1,8 @@
 [![Deploy AWS Account with Terraform](https://github.com/Hg347/ctf-rush/actions/workflows/terraform-deploy.yml/badge.svg)](https://github.com/Hg347/ctf-rush/actions/workflows/terraform-deploy.yml)
 
 
-# AWS Admins
-Administrators of AWS need to access and open the [AWS Management Console](https://signin.aws.amazon.com/).
-
-## Initial Setup
-1. Create a root Account in AWS
-   - enable MFA
-1. Go to `IAM` and create a user for access via terraform
-   - create your own `policy` and assign only the minimum required rights 
-   - create a new `user group` and assign your new policy to that group
-   - crete a new `user` and assign it to your new group
-1. Go to `Budgets` and create a budget to be notified when costs reach 85% of that budget.
-
-
+# Initial AWS setup for terraform
+Refer to [Readme.md in policy folder](./policies/Readme.md)
 
 
 # Developers

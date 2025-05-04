@@ -43,7 +43,16 @@ resource "aws_api_gateway_integration" "players_post_integration" {
 
 resource "aws_api_gateway_deployment" "ctf" {
   rest_api_id = aws_api_gateway_rest_api.ctf.id
-  stage_name  = "dev"
+  depends_on = [
+    aws_api_gateway_integration.players_get_integration,
+    aws_api_gateway_integration.players_post_integration
+  ]
+}
+
+resource "aws_api_gateway_stage" "ctf_stage" {
+  rest_api_id   = aws_api_gateway_rest_api.ctf.id
+  deployment_id = aws_api_gateway_deployment.ctf.id
+  stage_name    = "dev"
 }
 
 output "api_gateway_invoke_url" {
