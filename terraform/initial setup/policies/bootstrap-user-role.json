@@ -1,0 +1,39 @@
+{
+	"Version": "2012-10-17",
+	"Statement": [
+		{
+			"Effect": "Allow",
+			"Action": [
+				"iam:CreateUser",
+				"iam:DeleteUser",
+				"iam:CreateRole",
+				"iam:DeleteRole",
+				"iam:GetRole",
+				"iam:CreatePolicy",
+				"iam:DeletePolicy",
+				"iam:GetUser",
+				"iam:GetPolicy",
+				"iam:GetPolicyVersion",
+				"iam:AttachUserPolicy",
+				"iam:DetachUserPolicy",
+				"iam:CreateAccessKey",
+				"iam:DeleteAccessKey",
+				"iam:ListAccessKeys",
+				"iam:TagUser",
+				"iam:TagPolicy",
+				"iam:TagRole",
+				"iam:ListGroupsForUser",
+				"iam:ListRolePolicies",
+				"iam:ListPolicyVersions",
+				"iam:ListAttachedUserPolicies",
+				"iam:ListAttachedRolePolicies",
+				"iam:ListAttachedRolePolicies",
+				"iam:ListInstanceProfilesForRole",
+				"iam:AttachRolePolicy",
+				"iam:DetachRolePolicy",
+				"iam:PassRole"
+			],
+			"Resource": "*"
+		}
+	]
+}

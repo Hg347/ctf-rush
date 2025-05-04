@@ -1,0 +1,132 @@
+#
+# Initial AWS environment
+# terraform state file is remotely in an S3 bucket
+#
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.0" # Use the latest major version
+    }
+  }
+  backend "s3" {
+    bucket         = "ctfrush-terraform-state" 
+    key            = "terraform/state/initial-tfuser.tfstate" 
+    region         = "eu-central-1" 
+    encrypt        = true 
+  }
+}
+
+provider "aws" {
+  region = "eu-central-1"
+  profile = "bootstrap" # AWS profile with the correct credentials
+}
+
+variable "ctf_tags" {
+  type = map(string)
+  default = {
+    creator = "initial_terraform"
+    creatorUrl = "https://github.com/Hg347/ctf-rush"
+    project = "ctf-rush"
+    environment = "Development"
+    context = "terraform"
+    purpose = "initial setup"
+  }
+}
+
+
+#
+# Create terraform-user
+#
+resource "aws_iam_user" "terraform_user" {
+  name = "terraform-user"
+  tags = var.ctf_tags
+}
+
+# Grant assume role permission
+resource "aws_iam_policy" "terraform_user_policy" {
+  name   = "TerraformUserAssumeRolePolicy"
+  policy = jsonencode({
+    Version = "2012-10-17",
+    Statement = [{
+      Effect   = "Allow",
+      Action   = "sts:AssumeRole",
+      Resource = aws_iam_role.terraform_execution_role.arn
+    }]
+  })
+}
+
+# Attach permission to user
+resource "aws_iam_user_policy_attachment" "terraform_user_policy_attach" {
+  user       = aws_iam_user.terraform_user.name
+  policy_arn = aws_iam_policy.terraform_user_policy.arn
+}
+
+
+#
+# Create role for terraform user
+#
+resource "aws_iam_role" "terraform_execution_role" {
+  name = "TerraformExecutionRole"
+  tags = var.ctf_tags
+
+  assume_role_policy = jsonencode({
+    Version = "2012-10-17",
+    Statement = [{
+      Effect    = "Allow"
+      # find aws account id: 
+      # aws sts get-caller-identity --query Account --output text
+      # AWS = "arn:aws:iam::<account-id>:user/terraform_user"
+      Principal = { AWS = "arn:aws:iam::149532386180:user/terraform-user" }
+      Action    = "sts:AssumeRole"
+    }]
+  })
+}
+
+
+#
+# Cognito
+# Define access rights (policy) for TerraformExecutionRole
+resource "aws_iam_policy" "cognito_terraform_policy" {
+  name   = "CognitoPolicy"
+  tags = var.ctf_tags
+  policy = file("policies/cognito_terraform_policy.json")  # JSON-Datei einbinden
+}
+
+# Attach role policy to TerraformExecutionRole
+resource "aws_iam_role_policy_attachment" "cognito_policy_attach" {
+  role       = aws_iam_role.terraform_execution_role.name
+  policy_arn = aws_iam_policy.cognito_terraform_policy.arn
+}
+
+
+#
+# ECR
+# Define access rights (policy) for TerraformExecutionRole
+resource "aws_iam_policy" "ecr_terraform_policy" {
+  name   = "EcrPolicy"
+  tags = var.ctf_tags
+  policy = file("policies/ecr_terraform_policy.json")  # JSON-Datei einbinden
+}
+
+# Attach role policy to TerraformExecutionRole
+resource "aws_iam_role_policy_attachment" "ecr_policy_attach" {
+  role       = aws_iam_role.terraform_execution_role.name
+  policy_arn = aws_iam_policy.ecr_terraform_policy.arn
+}
+
+
+#
+# Lambda
+# Define access rights (policy) for TerraformExecutionRole
+resource "aws_iam_policy" "lambda_terraform_policy" {
+  name   = "LambdaPolicy"
+  tags = var.ctf_tags
+  policy = file("policies/lambda_terraform_policy.json")  # JSON-Datei einbinden
+}
+
+# Attach role policy to TerraformExecutionRole
+resource "aws_iam_role_policy_attachment" "lambda_policy_attach" {
+  role       = aws_iam_role.terraform_execution_role.name
+  policy_arn = aws_iam_policy.lambda_terraform_policy.arn
+}

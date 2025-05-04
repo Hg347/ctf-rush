@@ -1,0 +1,22 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Effect": "Allow",
+        "Action": [
+          "cognito-idp:CreateUserPool",
+          "cognito-idp:DeleteUserPool",
+          "cognito-idp:TagResource",
+          "cognito-idp:UntagResource",
+          "cognito-idp:SetUserPoolMfaConfig",
+          "cognito-idp:GetUserPoolMfaConfig",
+          "cognito-identity:CreateIdentityPool",
+				  "cognito-identity:DeleteIdentityPool",
+          "cognito-identity:TagResource",
+          "cognito-identity:UntagResource"
+        ],
+        "Resource": "*"
+      }
+    ]
+  }
+  

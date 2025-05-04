@@ -1,0 +1,18 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Effect": "Allow",
+        "Action": [
+          "iam:TagRole",
+          "iam:ListRolePolicies",
+          "iam:ListPolicyVersions",
+          "iam:ListAttachedRolePolicies",
+          "iam:ListAttachedRolePolicies",
+          "iam:ListInstanceProfilesForRole"
+        ],
+        "Resource": "*"
+      }
+    ]
+  }
+  

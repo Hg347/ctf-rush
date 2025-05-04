@@ -1,0 +1,19 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Effect": "Allow",
+        "Action": [
+          "ecr:CreateRepository",
+          "ecr:DescribeImages",
+          "ecr:DescribeRepositories",
+          "ecr:ListImages",
+          "ecr:ListTagsForResource",
+				  "ecr:DeleteRepository",
+          "ecr:PutImage"
+        ],
+        "Resource": "*"
+      }
+    ]
+  }
+  
