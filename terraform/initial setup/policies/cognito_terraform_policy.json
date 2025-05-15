@@ -19,6 +19,7 @@
           "cognito-idp:UpdateUserPoolClient",
           "cognito-identity:CreateIdentityPool",
 				  "cognito-identity:DeleteIdentityPool",
+          "cognito-identity:DescribeIdentityPool",
           "cognito-identity:TagResource",
           "cognito-identity:UntagResource"
         ],

@@ -5,7 +5,18 @@
         "Effect": "Allow",
         "Action": [
           "lambda:CreateFunction",
+          "lambda:DeleteFunction",
+          "lambda:UpdateFunctionConfiguration",
+          "lambda:ListFunctions",
+          "lambda:GetFunction",
+          "lambda:ListTags",
+          "lambda:ListVersionsByFunction",
+          "lambda:ListAliases",
+          "lambda:ListEventSourceMappings",
           "lambda:UpdateFunctionCode",
+          "lambda:GetImageManifest",
+          "lambda:CreateFunctionUrlConfig",
+          "lambda:DeleteFunctionUrlConfig",
           "lambda:TagResource"
         ],
         "Resource": "*"

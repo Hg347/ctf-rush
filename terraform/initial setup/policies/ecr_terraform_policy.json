@@ -12,6 +12,8 @@
 				  "ecr:DeleteRepository",
           "ecr:TagResource",
           "ecr:UntagResource",
+          "ecr:GetImageManifest",
+          "ecr:DescribeImageScanFindings",
           "ecr:PutImage"
         ],
         "Resource": "*"

@@ -14,6 +14,8 @@
 				"iam:GetUser",
 				"iam:GetPolicy",
 				"iam:GetPolicyVersion",
+				"iam:DeletePolicyVersion",
+				"iam:CreatePolicyVersion",
 				"iam:AttachUserPolicy",
 				"iam:DetachUserPolicy",
 				"iam:CreateAccessKey",

@@ -8,10 +8,10 @@ Almost everthings should be created via Infrastructure as Code (IaC), i.e. via t
 
 
 ## Initial Setup
-1. Create a root Account in AWS
-   -  enable MFA
+1. Create a root Account in AWS or `Sign in using root user email`
+   - enable MFA
    - Go to `Budgets` and create a budget to be notified when costs reach 85% of that budget.
-1. Go to `IAM` and create a `policy` and copy and paste the contents of the file [bootstrap-user-role.json](./bootstrap-user-role.json)   
+1. Go to `IAM` and create a `policy` named 'Bootstrap-Policy' and copy and paste the contents of the file [bootstrap-user-role.json](./bootstrap-user-role.json)   
 1. Create a `bootstrap-user` for initial access via terraform
    - attach your policy of the previous step to that user
 1. Create an `access key` for the bootstrap user. This enables the initial terraform scripts to act on behalf of that user.

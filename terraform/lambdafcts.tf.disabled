@@ -34,6 +34,8 @@ resource "aws_iam_policy" "lambda_ecr_access_policy" {
           "ecr:GetAuthorizationToken",
           "ecr:BatchCheckLayerAvailability",
           "ecr:GetDownloadUrlForLayer",
+          "ecr:ListImages",
+          "ecr:GetImageManifest",
           "ecr:BatchGetImage"
         ],
         Resource = "arn:aws:ecr:${var.aws_settings.region}:${var.aws_settings.account_id}:repository/ctf-backend-services"
