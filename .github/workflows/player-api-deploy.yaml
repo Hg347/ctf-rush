@@ -3,8 +3,8 @@ name: Player API Lambda
 on:
   workflow_dispatch: # Enables manual triggering
   push:
-    branches:
-      - main
+    paths:
+      - 'prototypes/**'
 
 jobs:
   build-and-deploy:
