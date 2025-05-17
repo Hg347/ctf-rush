@@ -30,6 +30,7 @@ jobs:
 
     - name: Set AWS Profile
       run: |
+        mkdir -p ~/.aws
         echo "[default]" > ~/.aws/config
         echo "region = eu-central-1" >> ~/.aws/config
         echo "[profile terraform]" >> ~/.aws/config
