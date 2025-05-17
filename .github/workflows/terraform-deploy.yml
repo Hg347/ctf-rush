@@ -23,7 +23,7 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: eu-central-1
         role-to-assume: arn:aws:iam::149532386180:role/TerraformExecutionRole
-        role-session-name: GitHubActionsSession
+        #role-session-name: GitHubActionsSession
 
     - name: Restore Terraform Cache
       uses: actions/cache@v3

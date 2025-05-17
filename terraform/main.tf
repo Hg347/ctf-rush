@@ -19,8 +19,7 @@ terraform {
 
 
 #
-# Note 15.05.2025: pipeline does not know a profile, this is saved in local aws settings only
-# the pipeline works with secrets and variables
+# Note 17.05.2025: pipeline sets this instead main.tf
 #
 #provider "aws" {
 #  region = var.aws_settings.region
