@@ -50,7 +50,10 @@ resource "aws_iam_policy" "terraform_user_policy" {
     Version = "2012-10-17",
     Statement = [{
       Effect   = "Allow",
-      Action   = "sts:AssumeRole",
+      Action   = [ 
+        "sts:AssumeRole",
+        "sts:TagSession"
+      ]
       Resource = aws_iam_role.terraform_execution_role.arn
     }]
   })
@@ -78,7 +81,10 @@ resource "aws_iam_role" "terraform_execution_role" {
       # aws sts get-caller-identity --query Account --output text
       # AWS = "arn:aws:iam::<account-id>:user/terraform_user"
       Principal = { AWS = "arn:aws:iam::149532386180:user/terraform-user" }
-      Action    = "sts:AssumeRole"
+      Action   = [ 
+        "sts:AssumeRole",
+        "sts:TagSession"
+      ]
     }]
   })
 }

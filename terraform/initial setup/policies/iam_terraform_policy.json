@@ -21,8 +21,7 @@
           "iam:ListRolePolicies",
           "iam:ListPolicyVersions",
           "iam:ListAttachedRolePolicies",
-          "iam:ListAttachedRolePolicies",
-          "iam:ListInstanceProfilesForRole"
+          "iam:ListAttachedRolePolicies"
         ],
         "Resource": "*"
       }
