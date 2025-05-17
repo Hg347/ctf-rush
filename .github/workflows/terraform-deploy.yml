@@ -22,18 +22,8 @@ jobs:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: eu-central-1
-        # role-to-assume: arn:aws:iam::123456789012:role/MyGitHubRole
-        # role-session-name: GitHubActionsSession
-
-    - name: Set AWS Profile
-      run: |
-        mkdir -p ~/.aws
-        echo "[default]" > ~/.aws/config
-        echo "region = eu-central-1" >> ~/.aws/config
-        echo "[profile terraform]" >> ~/.aws/config
-        echo "region = eu-central-1" >> ~/.aws/config
-        echo "output = json" >> ~/.aws/config
-
+        role-to-assume: arn:aws:iam::149532386180:role/TerraformExecutionRole
+        role-session-name: GitHubActionsSession
 
     - name: Restore Terraform Cache
       uses: actions/cache@v3
