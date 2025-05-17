@@ -7,15 +7,21 @@ jobs:
   terraform_destroy:
     runs-on: ubuntu-latest
     environment:
-      name: development 
-    env:
-      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}  
+      name: development
 
     steps:
     # Step 1: Checkout the repository
     - name: Checkout code
       uses: actions/checkout@v3
+
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v2
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: eu-central-1
+        role-to-assume: arn:aws:iam::149532386180:role/TerraformExecutionRole
+        role-session-name: GitHubActionsSession
 
     # Step 2: Set up Terraform
     - name: Set up Terraform

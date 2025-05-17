@@ -4,6 +4,7 @@
 		{
 			"Effect": "Allow",
 			"Action": [
+				"sts:TagSession",
 				"iam:CreateUser",
 				"iam:DeleteUser",
 				"iam:CreateRole",
