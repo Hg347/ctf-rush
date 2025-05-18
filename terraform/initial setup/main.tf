@@ -82,7 +82,8 @@ resource "aws_iam_role" "terraform_execution_role" {
       Principal = { AWS = "arn:aws:iam::149532386180:user/terraform-user" }
       Action   = [ 
         "sts:AssumeRole",
-        "sts:TagSession"
+        "sts:TagSession",
+        "s3:GetObject"
       ]
     }]
   })
