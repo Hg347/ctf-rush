@@ -43,7 +43,7 @@ resource "aws_iam_user" "terraform_user" {
   tags = var.ctf_tags
 }
 
-# Grant assume role permission
+# create an assume role permission
 resource "aws_iam_policy" "terraform_user_policy" {
   name   = "TerraformUserAssumeRolePolicy"
   policy = jsonencode({
@@ -51,15 +51,14 @@ resource "aws_iam_policy" "terraform_user_policy" {
     Statement = [{
       Effect   = "Allow",
       Action   = [ 
-        "sts:AssumeRole",
-        "sts:TagSession"
+        "sts:AssumeRole"
       ]
       Resource = aws_iam_role.terraform_execution_role.arn
     }]
   })
 }
 
-# Attach permission to user
+# Attach permission to assume role to user
 resource "aws_iam_user_policy_attachment" "terraform_user_policy_attach" {
   user       = aws_iam_user.terraform_user.name
   policy_arn = aws_iam_policy.terraform_user_policy.arn
