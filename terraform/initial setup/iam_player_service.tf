@@ -28,7 +28,7 @@ resource "aws_iam_user_policy_attachment" "player_service_policy_attach" {
 
 # Create role for the new user
 resource "aws_iam_role" "player_service_execution_role" {
-  name = "PlayerServiceExecutionRole"
+  name = "PlayerServiceDeploymentRole"
   tags = var.ctf_tags
 
   assume_role_policy = jsonencode({
