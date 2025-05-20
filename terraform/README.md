@@ -1,11 +1,7 @@
 [![Deploy AWS Account with Terraform](https://github.com/Hg347/ctf-rush/actions/workflows/terraform-deploy.yml/badge.svg)](https://github.com/Hg347/ctf-rush/actions/workflows/terraform-deploy.yml)
 
-
-# Initial AWS setup for terraform
-Refer to [Readme.md in policy folder](./policies/Readme.md)
-
-
 # Developers
+The following steps are only required if you are working with Terraform on AWS infrastructure.
 
 ## Setup Local Development Environment
 
@@ -13,14 +9,16 @@ Refer to [Readme.md in policy folder](./policies/Readme.md)
 - install `terraform cli`
 - install `aws cli` 
 
+## Initial AWS setup for terraform
 
-### Initial Setup
+1. Change into the directory `terraform` 
 
-1. Ask the AWS admins of the ctf-rush project for AWS credentials
-1. Execute following commands in the console on your local development system:
-   - `aws configure` save aws credentials in `~/.aws/credentials` and configurations in `~/.aws/config`
-   - terraform init
-1. Create an AWS S3 bucket to the terraform state remotely
-   - `aws s3api create-bucket --bucket ctfrush-terraform-state --region eu-central-1 --create-bucket-configuration LocationConstraint=eu-central-1`
-   - enable versioning: `aws s3api put-bucket-versioning --bucket ctfrush-terraform-state --versioning-configuration Status=Enabled`
+1. Ask project administrators to securely send the AWS credentials to you. For secure credential transfer, it's best they use a password safe, e.g. [bitwarden](https://bitwarden.com/products/send/).
+
+1. Configure *aws cli* to use the `terraform-user`   
+   ```bash
+   aws configure --profile terraform
+   ``` 
+   `aws configure` save aws credentials in `~/.aws/credentials` and configurations in `~/.aws/config`.
+
 

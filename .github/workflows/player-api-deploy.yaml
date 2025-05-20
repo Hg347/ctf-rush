@@ -25,7 +25,13 @@ jobs:
     # Step 3: Build the Go binary
     - name: Build Go binary
       run: |
-        GOOS=linux GOARCH=amd64 go build -o main ./prototypes/services/player_service/main.go
+        GOOS=linux GOARCH=amd64 go build -o main main.go
+      working-directory: ./prototypes/services/player_service
+      env:
+        GO111MODULE: auto
+        GOPROXY: https://proxy.golang.org
+        GOSUMDB: sum.golang.org
+        CGO_ENABLED: 0
 
     # Step 4: Package the binary into a ZIP file
     - name: Package Lambda function

@@ -2,6 +2,12 @@
 # Initial AWS environment
 # terraform state file is remotely in an S3 bucket
 #
+
+provider "aws" {
+  region = "eu-central-1"
+  profile = "bootstrap" # AWS profile with the correct credentials
+}
+
 terraform {
   required_providers {
     aws = {
@@ -17,9 +23,14 @@ terraform {
   }
 }
 
-provider "aws" {
-  region = "eu-central-1"
-  profile = "bootstrap" # AWS profile with the correct credentials
+variable "aws_settings" {
+  type = map(string)
+  description = "General settings required in various modules"
+  default = {
+    account_id = "149532386180"
+    region = "eu-central-1"  # set this also in main.tf backend s3 region!
+    stage = "development"
+  }
 }
 
 variable "ctf_tags" {
@@ -33,7 +44,6 @@ variable "ctf_tags" {
     purpose = "initial setup"
   }
 }
-
 
 #
 # Create terraform-user
@@ -82,11 +92,25 @@ resource "aws_iam_role" "terraform_execution_role" {
       Principal = { AWS = "arn:aws:iam::149532386180:user/terraform-user" }
       Action   = [ 
         "sts:AssumeRole",
-        "sts:TagSession",
-        "s3:GetObject"
+        "sts:TagSession"
       ]
     }]
   })
+}
+
+#
+# S3
+# Define access rights (policy) for TerraformExecutionRole
+resource "aws_iam_policy" "s3_terraform_policy" {
+  name   = "S3Policy"
+  tags = var.ctf_tags
+  policy = file("policies/s3_terraform_policy.json")  # JSON-Datei einbinden
+}
+
+# Attach role policy to TerraformExecutionRole
+resource "aws_iam_role_policy_attachment" "s3_policy_attach" {
+  role       = aws_iam_role.terraform_execution_role.name
+  policy_arn = aws_iam_policy.s3_terraform_policy.arn
 }
 
 
@@ -182,4 +206,22 @@ resource "aws_iam_policy" "apigateway_terraform_policy" {
 resource "aws_iam_role_policy_attachment" "apigateway_policy_attach" {
   role       = aws_iam_role.terraform_execution_role.name
   policy_arn = aws_iam_policy.apigateway_terraform_policy.arn
+}
+
+# refer to line 42, create user
+resource "aws_iam_access_key" "terraform_access_key" {
+  user = aws_iam_user.terraform_user.name
+}
+
+output "aws_region" {
+  value = var.aws_settings.region
+}
+
+output "aws_access_key_id" {
+  value = aws_iam_access_key.terraform_access_key.id
+}
+
+output "secret_access_key" {
+  value     = aws_iam_access_key.terraform_access_key.secret
+  sensitive = true
 }

@@ -2,6 +2,9 @@
 
 This guide explains the very first and initial setup of AWS and terraform. This needs to be done only once to initially setup an AWS environment.
 
+**Target Group**  
+Project admins with AWS root access.
+
 ## AWS root user
 Only the AWS root user has access rights to open the [AWS Management Console](https://signin.aws.amazon.com/). The root user is only seldomly used to manage basic things like the initial setup.
 Almost everthings should be created via Infrastructure as Code (IaC), i.e. via terraform. Only IaC can be tracked and analyzed for security risks.
@@ -32,19 +35,20 @@ Almost everthings should be created via Infrastructure as Code (IaC), i.e. via t
 
 1. Execute terraform to create a service account for further terraform execution
    ```bash
-   terraform init
-   terraform plan -out=tfplan
-   terraform apply tfplan
+   AWS_PROFILE=bootstrap terraform init
+   AWS_PROFILE=bootstrap terraform plan -out=tfplan
+   AWS_PROFILE=bootstrap terraform apply tfplan
    ```
+1. Securely store the AWS credentials issued by Terraform in a password safe, 
+   e.g. [bitwarden](https://bitwarden.com/products/personal/).
+1. Securely send the AWS credentials to project developers working on Terraform pipelines. Zur sicheren Übertragung nutzen Sie eine entsprechende Funktion des Passwort-Safes, e.g. [bitwarden send](https://bitwarden.com/products/send/).
 
-1. Remove any policies to the `Bootstrap-User` 
-1. Deactivate the access key of the `Bootstrap-User` 
+   **ATTENTION**  
+   Allow only developers you know well and trust to work on Terraform pipelines.
+   Only the few developers working on pipelines need these credentials.  
+   **No one else!**  
+   Never store credentials in git.
 
-1. Change into the directory `terraform` above
-
-1. Configure aws cli to use the `terraform-user`
-   Ask the project admins to securely receive the aws credentials.
-   Use a password safe function or similar. 
-   ```bash
-   aws configure --profile terraform
-   ``` 
+1. The bootstrap user is no longer needed as we have simply created a Terraform user instead that can be used for future setups via Terraform. Open the AWS root console and perform the following steps manually:
+   1. Remove any policies to the `Bootstrap-User` 
+   1. Deactivate the access key of the `Bootstrap-User` 
