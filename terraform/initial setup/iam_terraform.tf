@@ -7,17 +7,16 @@ resource "aws_iam_user" "terraform_user" {
 }
 
 # create access key for that user
-resource "aws_iam_access_key" "terraform_access_key" {
+resource "aws_iam_access_key" "aws_terraform_key" {
   user = aws_iam_user.terraform_user.name
 }
 
-
-output "aws_access_key_id" {
-  value = aws_iam_access_key.terraform_access_key.id
+output "aws_terraform_key_id" {
+  value = aws_iam_access_key.aws_terraform_key.id
 }
 
-output "secret_access_key" {
-  value     = aws_iam_access_key.terraform_access_key.secret
+output "aws_secret_terraform_key" {
+  value     = aws_iam_access_key.aws_terraform_key.secret
   sensitive = true
 }
 
@@ -54,7 +53,7 @@ resource "aws_iam_role" "terraform_execution_role" {
 
 # Define policy (access rights) for TerraformExecutionRole
 resource "aws_iam_policy" "iam_terraform_policy" {
-  name   = "IamPolicy"
+  name   = "TerraformRolePolicy"
   tags = var.ctf_tags
   policy = file("policies/iam_terraform_policy.json")  # JSON-Datei einbinden
 }

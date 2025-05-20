@@ -7,16 +7,16 @@ resource "aws_iam_user" "player_service" {
 }
 
 # create access key for that user
-resource "aws_iam_access_key" "player_service_access_key" {
+resource "aws_iam_access_key" "aws_deployment_key" {
   user = aws_iam_user.player_service.name
 }
 
-output "aws_player_key_id" {
-  value = aws_iam_access_key.player_service_access_key.id
+output "aws_deployment_key_id" {
+  value = aws_iam_access_key.aws_deployment_key.id
 }
 
-output "secret_player_key" {
-  value     = aws_iam_access_key.player_service_access_key.secret
+output "aws_secret_deployment_key" {
+  value     = aws_iam_access_key.aws_deployment_key.secret
   sensitive = true
 }
 
@@ -49,7 +49,7 @@ resource "aws_iam_role" "player_service_execution_role" {
 
 # Define policy (access rights) for ExecutionRole
 resource "aws_iam_policy" "ecr_role_policy" {
-  name   = "IamPolicy"
+  name   = "EcrRolePolicy"
   tags = var.ctf_tags
   policy = file("policies/ecr_role_policy.json")  # JSON-Datei einbinden
 }
