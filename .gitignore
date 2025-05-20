@@ -5,6 +5,7 @@ yarn-error.log
 
 # terraform
 .terraform/
+access_key.json
 
 # Laravel 4 specific
 bootstrap/compiled.php

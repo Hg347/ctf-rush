@@ -18,7 +18,7 @@ Almost everthings should be created via Infrastructure as Code (IaC), i.e. via t
 1. Create a `bootstrap-user` for initial access via terraform
    - attach your policy of the previous step to that user
 1. Create an `access key` for the bootstrap user. This enables the initial terraform scripts to act on behalf of that user.
-   - choose purpose command line interface (CLI)
+   - choose `purpose command line interface (CLI)`
 1. On your local development system change to folder`./terraform/initial setup` 
 1. Execute following commands in the console on your local development system:
    ```bash
@@ -38,16 +38,24 @@ Almost everthings should be created via Infrastructure as Code (IaC), i.e. via t
    AWS_PROFILE=bootstrap terraform init
    AWS_PROFILE=bootstrap terraform plan -out=tfplan
    AWS_PROFILE=bootstrap terraform apply tfplan
+   AWS_PROFILE=bootstrap terraform output -json > access_key.json
    ```
-1. Securely store the AWS credentials issued by Terraform in a password safe, 
+1. Extract the AWS credentials from access_key.json and securely store it in a password safe,
    e.g. [bitwarden](https://bitwarden.com/products/personal/).
+1. delete the local file access_key.json
+   ```
+   rm access_key.json
+   ```
+     <span style="color:orange">**ATTENTION**</span>  
+     Never store the *AWS credentials* in git. 
+
 1. Securely send the AWS credentials to project developers working on Terraform pipelines. Zur sicheren Übertragung nutzen Sie eine entsprechende Funktion des Passwort-Safes, e.g. [bitwarden send](https://bitwarden.com/products/send/).
 
-   **ATTENTION**  
+   <span style="color:orange">**ATTENTION**</span>  
    Allow only developers you know well and trust to work on Terraform pipelines.
    Only the few developers working on pipelines need these credentials.  
    **No one else!**  
-   Never store credentials in git.
+  
 
 1. The bootstrap user is no longer needed as we have simply created a Terraform user instead that can be used for future setups via Terraform. Open the AWS root console and perform the following steps manually:
    1. Remove any policies to the `Bootstrap-User` 
