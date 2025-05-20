@@ -6,24 +6,21 @@ resource "aws_iam_user" "terraform_user" {
   tags = var.ctf_tags
 }
 
+# create access key for that user
 resource "aws_iam_access_key" "terraform_access_key" {
   user = aws_iam_user.terraform_user.name
 }
 
-# create an assume role permission
-resource "aws_iam_policy" "terraform_user_policy" {
-  name   = "TerraformUserAssumeRolePolicy"
-  policy = jsonencode({
-    Version = "2012-10-17",
-    Statement = [{
-      Effect   = "Allow",
-      Action   = [ 
-        "sts:AssumeRole"
-      ]
-      Resource = aws_iam_role.terraform_execution_role.arn
-    }]
-  })
+
+output "aws_access_key_id" {
+  value = aws_iam_access_key.terraform_access_key.id
 }
+
+output "secret_access_key" {
+  value     = aws_iam_access_key.terraform_access_key.secret
+  sensitive = true
+}
+
 
 # Attach permission to assume role to user
 resource "aws_iam_user_policy_attachment" "terraform_user_policy_attach" {
@@ -55,12 +52,7 @@ resource "aws_iam_role" "terraform_execution_role" {
   })
 }
 
-
-
-#
-# IAM
-# Define access rights (policy) for TerraformExecutionRole
-#
+# Define policy (access rights) for TerraformExecutionRole
 resource "aws_iam_policy" "iam_terraform_policy" {
   name   = "IamPolicy"
   tags = var.ctf_tags
@@ -72,4 +64,21 @@ resource "aws_iam_role_policy_attachment" "iam_policy_attach" {
   role       = aws_iam_role.terraform_execution_role.name
   policy_arn = aws_iam_policy.iam_terraform_policy.arn
 }
+
+# create an assume role permission
+resource "aws_iam_policy" "terraform_user_policy" {
+  name   = "TerraformUserAssumeRolePolicy"
+  policy = jsonencode({
+    Version = "2012-10-17",
+    Statement = [{
+      Effect   = "Allow",
+      Action   = [ 
+        "sts:AssumeRole"
+      ]
+      Resource = aws_iam_role.terraform_execution_role.arn
+    }]
+  })
+}
+
+
 

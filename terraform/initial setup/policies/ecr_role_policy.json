@@ -4,15 +4,14 @@
       {
         "Effect": "Allow",
         "Action": [
-          "ecr:CreateRepository",
           "ecr:DescribeImages",
           "ecr:DescribeRepositories",
           "ecr:ListImages",
           "ecr:ListTagsForResource",
-				  "ecr:DeleteRepository",
           "ecr:TagResource",
           "ecr:UntagResource",
-          "ecr:DescribeImageScanFindings"
+          "ecr:DescribeImageScanFindings",
+          "ecr:PutImage"
         ],
         "Resource": "*"
       }
