@@ -11,6 +11,8 @@
           "ecr:TagResource",
           "ecr:UntagResource",
           "ecr:DescribeImageScanFindings",
+          "ecr:GetAuthorizationToken",
+          "ecr:InitiateLayerUpload",
           "ecr:PutImage"
         ],
         "Resource": "*"

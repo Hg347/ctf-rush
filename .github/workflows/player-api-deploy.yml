@@ -62,8 +62,8 @@ jobs:
     - name: Build and Tag Docker Image
       run: |
         docker build -t $APP_NAME .
-        docker tag $APP_NAME:latest ${{ vars.AWS_ACCOUNT_ID }}.dkr.ecr.${{ vars.AWS_REGION }}.amazonaws.com/$APP_NAME:latest
+        docker tag $APP_NAME:latest ${{ vars.AWS_ACCOUNT_ID }}.dkr.ecr.${{ vars.AWS_REGION }}.amazonaws.com/ctf-backend-services
 
     - name: Push Docker Image to AWS ECR
       run: |
-        docker push ${{ vars.AWS_ACCOUNT_ID }}.dkr.ecr.${{ vars.AWS_REGION }}.amazonaws.com/$APP_NAME:latest
+        docker push ${{ vars.AWS_ACCOUNT_ID }}.dkr.ecr.${{ vars.AWS_REGION }}.amazonaws.com/ctf-backend-services
