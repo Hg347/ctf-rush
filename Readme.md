@@ -8,7 +8,12 @@ The idea is to encourage children and young people to play together outdoors in 
 For more information about the traditional game, see [Wikipedia](https://en.wikipedia.org/wiki/Capture_the_flag).
 
 ## Project Status
-The project is currently in the conception phase.
+The project is currently in the conception and protottyping phase.
+
+**Current Focus:**  API to handle player data
+- [Simple API created](./prototypes/services/player_service/api_players.yaml), packed into [docker](./prototypes/services/player_service/Dockerfile) and registered in [AWS Elastic Container Registry (ECR)](https://docs.aws.amazon.com/ecr/).
+- **Next:** Run container in [AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html).
+
 
 ### Concepts and Design 
 Refer to [concepts folder](./concept/Readme.md)
@@ -24,14 +29,8 @@ Currently, the following information is only a preliminary idea. Running a web s
 
 ### Backend 
 
-For backend processing by an API service that is database backed, we intend to use either 
-
-1. [Laravel Homestead](https://laravel.com/docs/12.x/homestead) as development environment for the web server part.
-   - Linux, Apache, MySQL, PHP (LAMP)
-   - Laravel PHP framework
-   - LiveWire
-
-2. or [AWS Serverless Computing](https://aws.amazon.com/serverless/)
+For backend processing by an API service that is database backed, we intend to use 
+[AWS Serverless Computing](https://aws.amazon.com/serverless/)
 
 ### Frontend, Mobile Client
 

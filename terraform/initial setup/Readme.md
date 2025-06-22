@@ -9,6 +9,7 @@ Project admins with AWS root access.
 Only the AWS root user has access rights to open the [AWS Management Console](https://signin.aws.amazon.com/). The root user is only seldomly used to manage basic things like the initial setup.
 Almost everthings should be created via Infrastructure as Code (IaC), i.e. via terraform. Only IaC can be tracked and analyzed for security risks.
 
+![Screenshot AWS root login](./img/AWS%20root%20login.png)
 
 ## Initial Setup
 1. Create a root Account in AWS or `Sign in using root user email`

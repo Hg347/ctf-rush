@@ -12,6 +12,7 @@ of the product life cycle.
    - schema creation
    - ACID (Atomicity, Consistency, Isolation, Durability) conformity
 1. Test
+   - [AWS Lambda Runtime Interface Emulator](https://github.com/aws/aws-lambda-runtime-interface-emulator)
 1. Deployment
    - create and update run time environment
    - deploy new code
