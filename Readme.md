@@ -8,7 +8,7 @@ The idea is to encourage children and young people to play together outdoors in 
 For more information about the traditional game, see [Wikipedia](https://en.wikipedia.org/wiki/Capture_the_flag).
 
 ## Project Status
-The project is currently in the conception and protottyping phase.
+The project is currently in the conception and prototyping phase.
 
 **Current Focus:**  API to handle player data
 - [Simple API created](./prototypes/services/player_service/api_players.yaml), packed into [docker](./prototypes/services/player_service/Dockerfile) and registered in [AWS Elastic Container Registry (ECR)](https://docs.aws.amazon.com/ecr/).
